@@ -329,11 +329,11 @@
 
 <script>
 (function () {
-    const testmode = new URLSearchParams(window.location.search).has('testmode');
+    const teamlinkt_emi = new URLSearchParams(window.location.search).has('teamlinkt_emi');
     const params = new URLSearchParams({
         position: "left",
         primary_color: "#2454FF",
-        testmode,
+        teamlinkt_emi,
     });
     const s = document.createElement("script");
     s.src = `https://dev11.teamlinkt.com/emi-embedd?${params}`;

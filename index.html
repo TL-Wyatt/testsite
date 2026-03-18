@@ -327,8 +327,18 @@
     </footer>
 </body>
 
-<script
-  src="https://dev11.teamlinkt.com/emi-embedd?position=left&primary_color=%232454FF"
-  async
-></script>
+<script>
+(function () {
+    const testmode = new URLSearchParams(window.location.search).has('testmode');
+    const params = new URLSearchParams({
+        position: "left",
+        primary_color: "#2454FF",
+        testmode,
+    });
+    const s = document.createElement("script");
+    s.src = `https://dev11.teamlinkt.com/emi-embedd?${params}`;
+    s.async = true;
+    document.head.appendChild(s);
+})();
+</script>
 </html>

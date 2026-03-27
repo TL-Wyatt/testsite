@@ -3,325 +3,595 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thunder Ridge Athletics - Professional Basketball</title>
+    <title>Medicine Hat Rattlers - MHC Athletics</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rattler: {
+                            green: '#006341',
+                            gold: '#FFB81C',
+                            dark: '#004D31',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, #004D31 0%, #006341 40%, #002E1E 100%); }
+        .gold-glow { text-shadow: 0 0 40px rgba(255,184,28,0.3); }
+        .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.3); }
+        .sport-card { position: relative; overflow: hidden; }
+        .sport-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); }
+        .sport-card > * { position: relative; z-index: 1; }
+        .ticker { animation: scroll 60s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #FFB81C; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-950 text-white font-sans">
+
+    <!-- Results Ticker -->
+    <div class="bg-rattler-dark border-b border-rattler-green/30 overflow-hidden">
+        <div class="ticker flex whitespace-nowrap py-2 text-sm">
+            <div class="flex gap-8 px-4">
+                <span class="text-gray-400">Men's Futsal <span class="text-rattler-gold font-bold">ACAC GOLD</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Basketball vs Red Deer Poly <span class="text-green-400 font-semibold">W 73-53</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">M Basketball vs Red Deer Poly <span class="text-green-400 font-semibold">W 98-70</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Ice Hockey vs SAIT <span class="text-green-400 font-semibold">W 5-3</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">M Basketball vs St. Mary's <span class="text-green-400 font-semibold">W 90-82</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Ice Hockey vs Olds College <span class="text-green-400 font-semibold">W 3-2 (3OT)</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">M Basketball vs Lethbridge Poly <span class="text-green-400 font-semibold">W 75-73</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Basketball vs Lethbridge Poly <span class="text-green-400 font-semibold">W 69-57</span></span>
+            </div>
+            <div class="flex gap-8 px-4" aria-hidden="true">
+                <span class="text-gray-400">Men's Futsal <span class="text-rattler-gold font-bold">ACAC GOLD</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Basketball vs Red Deer Poly <span class="text-green-400 font-semibold">W 73-53</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">M Basketball vs Red Deer Poly <span class="text-green-400 font-semibold">W 98-70</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Ice Hockey vs SAIT <span class="text-green-400 font-semibold">W 5-3</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">M Basketball vs St. Mary's <span class="text-green-400 font-semibold">W 90-82</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Ice Hockey vs Olds College <span class="text-green-400 font-semibold">W 3-2 (3OT)</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">M Basketball vs Lethbridge Poly <span class="text-green-400 font-semibold">W 75-73</span></span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-400">W Basketball vs Lethbridge Poly <span class="text-green-400 font-semibold">W 69-57</span></span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="bg-black bg-opacity-50 backdrop-blur-md sticky top-0 z-50">
+    <nav class="bg-gray-950/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-600 rounded-lg"></div>
-                    <span class="text-xl font-bold">Thunder Ridge</span>
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-rattler-green rounded-full flex items-center justify-center text-xl font-black text-rattler-gold ring-2 ring-rattler-gold/50">R</div>
+                    <div class="leading-tight">
+                        <span class="text-lg font-bold block text-white group-hover:text-rattler-gold transition">Rattlers</span>
+                        <span class="text-xs text-gray-500 block">Medicine Hat College</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">Home</a>
+                    <a href="#sports" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">Sports</a>
+                    <a href="#news" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">News</a>
+                    <a href="#results" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">Results</a>
+                    <a href="#recruiting" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">Recruiting</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">Contact</a>
+                    <a href="https://www.rattlers.ca" target="_blank" class="bg-rattler-gold text-gray-900 px-5 py-2 rounded-lg text-sm font-bold hover:bg-yellow-400 transition">Tickets</a>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-blue-400 transition">Home</a>
-                    <a href="#team" class="hover:text-blue-400 transition">Team</a>
-                    <a href="#schedule" class="hover:text-blue-400 transition">Schedule</a>
-                    <a href="#stats" class="hover:text-blue-400 transition">Stats</a>
-                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
             </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 px-4 pb-4">
+            <a href="#home" class="block py-3 text-gray-300 hover:text-rattler-gold transition border-b border-gray-800">Home</a>
+            <a href="#sports" class="block py-3 text-gray-300 hover:text-rattler-gold transition border-b border-gray-800">Sports</a>
+            <a href="#news" class="block py-3 text-gray-300 hover:text-rattler-gold transition border-b border-gray-800">News</a>
+            <a href="#results" class="block py-3 text-gray-300 hover:text-rattler-gold transition border-b border-gray-800">Results</a>
+            <a href="#recruiting" class="block py-3 text-gray-300 hover:text-rattler-gold transition border-b border-gray-800">Recruiting</a>
+            <a href="#contact" class="block py-3 text-gray-300 hover:text-rattler-gold transition">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden pt-20 pb-32">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-transparent pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="home" class="hero-gradient relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><path d=%22M0 0h60v60H0z%22 fill=%22none%22/><path d=%22M30 5L55 30 30 55 5 30z%22 stroke=%22%23FFB81C%22 stroke-width=%220.5%22 fill=%22none%22/></svg>');"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 relative">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                        Thunder Ridge Athletics
+                    <div class="inline-flex items-center gap-2 bg-rattler-gold/10 border border-rattler-gold/30 rounded-full px-4 py-1.5 mb-6">
+                        <span class="w-2 h-2 bg-rattler-gold rounded-full animate-pulse"></span>
+                        <span class="text-rattler-gold text-sm font-medium">2025-26 ACAC Season</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black mb-6 gold-glow">
+                        <span class="text-white">Medicine Hat</span><br>
+                        <span class="text-rattler-gold">Rattlers</span>
                     </h1>
-                    <p class="text-xl text-gray-300 mb-8">
-                        Dominating the court with speed, strength, and precision. The most electrifying basketball team in the league.
+                    <p class="text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                        Competing with pride across 10 ACAC sports. Home of champions at Medicine Hat College.
                     </p>
-                    <div class="flex space-x-4">
-                        <button class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition">
-                            Watch Games
-                        </button>
-                        <button class="border-2 border-blue-400 hover:bg-blue-400 hover:text-black px-8 py-3 rounded-lg font-semibold transition">
-                            Get Tickets
-                        </button>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#sports" class="bg-rattler-gold text-gray-900 px-8 py-3.5 rounded-lg font-bold hover:bg-yellow-400 transition inline-flex items-center gap-2">
+                            Explore Sports
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="https://www.rattlers.ca/information/Become_A_Rattler" target="_blank" class="border-2 border-white/30 hover:border-rattler-gold hover:text-rattler-gold px-8 py-3.5 rounded-lg font-bold transition">
+                            Become a Rattler
+                        </a>
                     </div>
-                    <div class="flex space-x-8 mt-12 text-sm">
+                    <div class="flex gap-10 mt-14">
                         <div>
-                            <p class="text-gray-400">Founded</p>
-                            <p class="text-2xl font-bold">2019</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-400">Championships</p>
-                            <p class="text-2xl font-bold">2</p>
+                            <p class="text-3xl font-black text-rattler-gold">10</p>
+                            <p class="text-sm text-gray-400 mt-1">Varsity Sports</p>
                         </div>
                         <div>
-                            <p class="text-gray-400">Win Rate</p>
-                            <p class="text-2xl font-bold">76%</p>
+                            <p class="text-3xl font-black text-rattler-gold">ACAC</p>
+                            <p class="text-sm text-gray-400 mt-1">Conference</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-black text-rattler-gold">MHC</p>
+                            <p class="text-sm text-gray-400 mt-1">Medicine Hat College</p>
                         </div>
                     </div>
                 </div>
-                <div class="relative h-96 md:h-full">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl opacity-20 blur-3xl"></div>
-                    <div class="relative bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl h-full flex items-center justify-center">
+                <div class="relative hidden md:block">
+                    <div class="absolute -inset-4 bg-rattler-gold/10 rounded-3xl blur-3xl"></div>
+                    <div class="relative bg-gradient-to-br from-rattler-green to-rattler-dark rounded-3xl p-12 border border-rattler-gold/20">
                         <div class="text-center">
-                            <div class="text-7xl font-bold mb-4">⚡</div>
-                            <p class="text-2xl font-bold">Thunder Ridge</p>
-                            <p class="text-gray-300">Elite Basketball</p>
+                            <div class="w-32 h-32 mx-auto bg-rattler-gold/20 rounded-full flex items-center justify-center mb-6 ring-4 ring-rattler-gold/30">
+                                <span class="text-7xl font-black text-rattler-gold">R</span>
+                            </div>
+                            <p class="text-3xl font-black text-white mb-1">Rattlers</p>
+                            <p class="text-rattler-gold font-medium mb-6">Medicine Hat College</p>
+                            <div class="grid grid-cols-3 gap-4 text-center mt-8">
+                                <div class="bg-black/20 rounded-xl p-3">
+                                    <p class="text-rattler-gold text-lg font-bold">Men's Futsal</p>
+                                    <p class="text-xs text-gray-400 mt-1">ACAC Champions</p>
+                                </div>
+                                <div class="bg-black/20 rounded-xl p-3">
+                                    <p class="text-rattler-gold text-lg font-bold">Track</p>
+                                    <p class="text-xs text-gray-400 mt-1">Multiple Medals</p>
+                                </div>
+                                <div class="bg-black/20 rounded-xl p-3">
+                                    <p class="text-rattler-gold text-lg font-bold">XCR</p>
+                                    <p class="text-xs text-gray-400 mt-1">Nationals Qualifier</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-950 to-transparent"></div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="py-20 bg-gray-800/50">
+    <!-- Sports Section -->
+    <section id="sports" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center">Team Roster</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Player Cards -->
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                        <div class="text-6xl font-bold">23</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Marcus Sterling</h3>
-                        <p class="text-blue-400 mb-4">Point Guard</p>
-                        <p class="text-sm text-gray-400">Elite court vision and defensive prowess. Team captain.</p>
-                    </div>
-                </div>
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-black mb-4">Our <span class="text-rattler-gold">Sports</span></h2>
+                <p class="text-gray-400 max-w-xl mx-auto">The Rattlers compete in 10 ACAC sports across men's and women's programs.</p>
+            </div>
 
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-6xl font-bold">7</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">James Rivera</h3>
-                        <p class="text-purple-400 mb-4">Shooting Guard</p>
-                        <p class="text-sm text-gray-400">Explosive scorer with incredible three-point range.</p>
-                    </div>
+            <div class="mb-8">
+                <h3 class="text-sm font-bold text-rattler-gold uppercase tracking-widest mb-6">Men's Programs</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="https://www.rattlers.ca/sports/mbkb" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏀</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Basketball</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC South Division</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/mvball" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏐</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Volleyball</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC South Division</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/msoc" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">⚽</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Soccer</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC South Division</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/mfut" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group relative">
+                        <div class="absolute top-3 right-3 bg-rattler-gold text-gray-900 text-xs font-black px-2 py-0.5 rounded-full">ACAC CHAMPS</div>
+                        <div class="text-3xl mb-3">⚽</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Futsal</h4>
+                        <p class="text-sm text-gray-500 mt-1">2026 ACAC Gold</p>
+                    </a>
                 </div>
+            </div>
 
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                        <div class="text-6xl font-bold">12</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Derek Chen</h3>
-                        <p class="text-cyan-400 mb-4">Small Forward</p>
-                        <p class="text-sm text-gray-400">Defensive specialist with athletic versatility.</p>
-                    </div>
+            <div class="mb-8">
+                <h3 class="text-sm font-bold text-rattler-gold uppercase tracking-widest mb-6">Women's Programs</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="https://www.rattlers.ca/sports/wbkb" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏀</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Basketball</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC South Division</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/wvball" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏐</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Volleyball</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC South Division</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/wsoc" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">⚽</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Soccer</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC South Division</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/wice" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏒</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Ice Hockey</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC League</p>
+                    </a>
                 </div>
+            </div>
 
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition">
-                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-6xl font-bold">44</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Brandon Mitchell</h3>
-                        <p class="text-indigo-400 mb-4">Power Forward</p>
-                        <p class="text-sm text-gray-400">Dominant rebounder and interior defender.</p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition">
-                    <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
-                        <div class="text-6xl font-bold">5</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Tyler Anderson</h3>
-                        <p class="text-indigo-300 mb-4">Center</p>
-                        <p class="text-sm text-gray-400">Two-time All-Star with championship experience.</p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition">
-                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-                        <div class="text-6xl font-bold">8</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Alex Thompson</h3>
-                        <p class="text-pink-400 mb-4">Shooting Guard</p>
-                        <p class="text-sm text-gray-400">Rising star with exceptional ball-handling skills.</p>
-                    </div>
+            <div>
+                <h3 class="text-sm font-bold text-rattler-gold uppercase tracking-widest mb-6">Combined Programs</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="https://www.rattlers.ca/sports/xc" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏃</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Cross Country</h4>
+                        <p class="text-sm text-gray-500 mt-1">CCAA Nationals Qualifier</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/indoortrack" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">🏅</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Indoor Track</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC Multiple Medalists</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/mgolf" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">⛳</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Golf</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC Championships</p>
+                    </a>
+                    <a href="https://www.rattlers.ca/sports/wfut" target="_blank" class="card-hover bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-rattler-gold/50 group">
+                        <div class="text-3xl mb-3">⚽</div>
+                        <h4 class="font-bold text-white group-hover:text-rattler-gold transition">Women's Futsal</h4>
+                        <p class="text-sm text-gray-500 mt-1">ACAC League</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="py-20">
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-gray-900/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center">Upcoming Schedule</h2>
-            <div class="space-y-4">
-                <div class="bg-gray-800 rounded-lg p-6 flex items-center justify-between hover:bg-gray-750 transition">
-                    <div class="flex items-center space-x-6">
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Mar 20</p>
-                            <p class="text-lg font-bold">Thunder Ridge</p>
-                        </div>
-                        <div class="text-2xl font-bold text-gray-600">vs</div>
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Phoenix Suns</p>
-                            <p class="text-lg font-bold">Away</p>
-                        </div>
-                    </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition">
-                        Tickets
-                    </button>
+            <div class="flex items-end justify-between mb-14">
+                <div>
+                    <h2 class="text-4xl font-black mb-4">Latest <span class="text-rattler-gold">News</span></h2>
+                    <p class="text-gray-400">Stay up to date with Rattlers Athletics.</p>
                 </div>
-
-                <div class="bg-gray-800 rounded-lg p-6 flex items-center justify-between hover:bg-gray-750 transition">
-                    <div class="flex items-center space-x-6">
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Mar 22</p>
-                            <p class="text-lg font-bold">Thunder Ridge</p>
-                        </div>
-                        <div class="text-2xl font-bold text-gray-600">vs</div>
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">LA Lakers</p>
-                            <p class="text-lg font-bold">Home</p>
-                        </div>
+                <a href="https://www.rattlers.ca" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-rattler-gold font-semibold hover:underline">
+                    All News
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://www.rattlers.ca/general/2025-26/releases/Rattler_Run_Registration_is_Open" target="_blank" class="card-hover bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-rattler-green to-rattler-dark flex items-center justify-center">
+                        <span class="text-6xl">🏃</span>
                     </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition">
-                        Tickets
-                    </button>
-                </div>
-
-                <div class="bg-gray-800 rounded-lg p-6 flex items-center justify-between hover:bg-gray-750 transition">
-                    <div class="flex items-center space-x-6">
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Mar 25</p>
-                            <p class="text-lg font-bold">Thunder Ridge</p>
-                        </div>
-                        <div class="text-2xl font-bold text-gray-600">vs</div>
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Denver Nuggets</p>
-                            <p class="text-lg font-bold">Away</p>
-                        </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rattler-gold uppercase tracking-wider">Event</span>
+                        <h3 class="text-lg font-bold mt-2 group-hover:text-rattler-gold transition">Rattler Run 2026 Registration is Open</h3>
+                        <p class="text-sm text-gray-400 mt-3 line-clamp-2">Register today for the Rattler Run 2026. Join the community and support MHC Athletics.</p>
                     </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition">
-                        Tickets
-                    </button>
-                </div>
-
-                <div class="bg-gray-800 rounded-lg p-6 flex items-center justify-between hover:bg-gray-750 transition">
-                    <div class="flex items-center space-x-6">
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Mar 28</p>
-                            <p class="text-lg font-bold">Thunder Ridge</p>
-                        </div>
-                        <div class="text-2xl font-bold text-gray-600">vs</div>
-                        <div class="text-center">
-                            <p class="text-sm text-gray-400">Golden State Warriors</p>
-                            <p class="text-lg font-bold">Home</p>
-                        </div>
+                </a>
+                <a href="https://www.rattlers.ca/general/2025-26/releases/2026_ACAC_Futsal_Championships" target="_blank" class="card-hover bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-rattler-gold/80 to-yellow-600 flex items-center justify-center">
+                        <span class="text-6xl">🏆</span>
                     </div>
-                    <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition">
-                        Tickets
-                    </button>
-                </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rattler-gold uppercase tracking-wider">Championship</span>
+                        <h3 class="text-lg font-bold mt-2 group-hover:text-rattler-gold transition">Men's Futsal Wins ACAC Gold at Home</h3>
+                        <p class="text-sm text-gray-400 mt-3 line-clamp-2">The Medicine Hat Rattlers Men's Futsal won Gold at the 2026 ACAC Futsal Championships hosted at home.</p>
+                    </div>
+                </a>
+                <a href="https://www.rattlers.ca/general/2025-26/releases/Multiple_Medals_for_MHC_Men_at_ACAC_Track_Championships" target="_blank" class="card-hover bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                        <span class="text-6xl">🏅</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rattler-gold uppercase tracking-wider">Track & Field</span>
+                        <h3 class="text-lg font-bold mt-2 group-hover:text-rattler-gold transition">Multiple Medals at ACAC Track Championships</h3>
+                        <p class="text-sm text-gray-400 mt-3 line-clamp-2">The Rattlers hit the podium twice during the ACAC Indoor Track Championships.</p>
+                    </div>
+                </a>
+                <a href="https://www.rattlers.ca/general/2025-26/releases/Local_Standout_Hannah_Markusson_Signs_with_Rattlers" target="_blank" class="card-hover bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-rattler-green/80 to-emerald-800 flex items-center justify-center">
+                        <span class="text-6xl">✍️</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rattler-gold uppercase tracking-wider">Signing</span>
+                        <h3 class="text-lg font-bold mt-2 group-hover:text-rattler-gold transition">Hannah Markusson Signs with Rattlers</h3>
+                        <p class="text-sm text-gray-400 mt-3 line-clamp-2">Local standout continues the Markusson family legacy with Women's Basketball.</p>
+                    </div>
+                </a>
+                <a href="https://www.rattlers.ca/general/2025-26/releases/Rattlers_Running_at_XCR_Nationals" target="_blank" class="card-hover bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-blue-900 to-blue-950 flex items-center justify-center">
+                        <span class="text-6xl">🇨🇦</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rattler-gold uppercase tracking-wider">Cross Country</span>
+                        <h3 class="text-lg font-bold mt-2 group-hover:text-rattler-gold transition">Rattlers Running at CCAA Nationals</h3>
+                        <p class="text-sm text-gray-400 mt-3 line-clamp-2">Four women and one man represented MHC at the 2025 CCAA Cross-Country Championships in PEI.</p>
+                    </div>
+                </a>
+                <a href="https://www.rattlers.ca/general/2025-26/releases/Friesen-_Woodruff_record_wins_at_ACAC_3_Track_Meet" target="_blank" class="card-hover bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-orange-900 to-red-950 flex items-center justify-center">
+                        <span class="text-6xl">🏁</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rattler-gold uppercase tracking-wider">Track & Field</span>
+                        <h3 class="text-lg font-bold mt-2 group-hover:text-rattler-gold transition">Friesen, Woodruff Record Wins at ACAC 3</h3>
+                        <p class="text-sm text-gray-400 mt-3 line-clamp-2">The last Track Meet before ACAC Championships took place in Lethbridge.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section id="stats" class="py-20 bg-gray-800/50">
+    <!-- Recent Results Section -->
+    <section id="results" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center">Season Stats</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 rounded-xl p-8 text-center">
-                    <p class="text-gray-400 mb-2">Games Played</p>
-                    <p class="text-5xl font-bold text-blue-400">32</p>
+            <h2 class="text-4xl font-black mb-14 text-center">Recent <span class="text-rattler-gold">Results</span></h2>
+            <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 21 &middot; Women's Basketball</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> St. Mary's</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-red-400 font-bold text-lg">62 - 66</span>
+                        <p class="text-xs text-red-400 font-medium">L</p>
+                    </div>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-8 text-center">
-                    <p class="text-gray-400 mb-2">Wins</p>
-                    <p class="text-5xl font-bold text-green-400">24</p>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 21 &middot; Men's Basketball</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> St. Mary's</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-red-400 font-bold text-lg">86 - 96</span>
+                        <p class="text-xs text-red-400 font-medium">L</p>
+                    </div>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-8 text-center">
-                    <p class="text-gray-400 mb-2">Avg Points/Game</p>
-                    <p class="text-5xl font-bold text-purple-400">112.4</p>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 21 &middot; Women's Ice Hockey</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> Olds College</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-red-400 font-bold text-lg">1 - 2</span>
+                        <p class="text-xs text-red-400 font-medium">L</p>
+                    </div>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-8 text-center">
-                    <p class="text-gray-400 mb-2">FG%</p>
-                    <p class="text-5xl font-bold text-cyan-400">47.2%</p>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 20 &middot; Women's Ice Hockey</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> Olds College</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-green-400 font-bold text-lg">3 - 2</span>
+                        <p class="text-xs text-green-400 font-medium">W (3OT)</p>
+                    </div>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-8 text-center">
-                    <p class="text-gray-400 mb-2">3PT%</p>
-                    <p class="text-5xl font-bold text-indigo-400">38.1%</p>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 20 &middot; Men's Basketball</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> St. Mary's</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-green-400 font-bold text-lg">90 - 82</span>
+                        <p class="text-xs text-green-400 font-medium">W</p>
+                    </div>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-8 text-center">
-                    <p class="text-gray-400 mb-2">Rebounds/Game</p>
-                    <p class="text-5xl font-bold text-pink-400">48.3</p>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 20 &middot; Women's Basketball</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> St. Mary's</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-red-400 font-bold text-lg">57 - 75</span>
+                        <p class="text-xs text-red-400 font-medium">L</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 14 &middot; Men's Basketball</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> Lethbridge Poly</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-green-400 font-bold text-lg">75 - 73</span>
+                        <p class="text-xs text-green-400 font-medium">W</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">Feb 14 &middot; Women's Basketball</p>
+                        <p class="font-semibold">Rattlers <span class="text-gray-500">vs</span> Lethbridge Poly</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-green-400 font-bold text-lg">69 - 57</span>
+                        <p class="text-xs text-green-400 font-medium">W</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="https://www.rattlers.ca" target="_blank" class="text-rattler-gold font-semibold hover:underline inline-flex items-center gap-2">
+                    View Full Schedule
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiting Section -->
+    <section id="recruiting" class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-rattler-green to-rattler-dark rounded-3xl p-10 md:p-16 border border-rattler-gold/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-rattler-gold/5 rounded-full blur-3xl"></div>
+                <div class="relative grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h2 class="text-4xl font-black mb-4">Become a <span class="text-rattler-gold">Rattler</span></h2>
+                        <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+                            Are you a student-athlete looking to compete at the college level? Medicine Hat College offers a world-class athletics experience with ACAC competition, academic support, and a tight-knit community.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.rattlers.ca/information/Become_A_Rattler" target="_blank" class="bg-rattler-gold text-gray-900 px-8 py-3.5 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                Start Your Journey
+                            </a>
+                            <a href="https://www.rattlers.ca/information/Eligibility_Information" target="_blank" class="border-2 border-white/30 hover:border-rattler-gold px-8 py-3.5 rounded-lg font-bold transition hover:text-rattler-gold">
+                                Eligibility Info
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black/20 rounded-xl p-6 text-center">
+                            <p class="text-3xl font-black text-rattler-gold">10</p>
+                            <p class="text-sm text-gray-400 mt-2">Sports Programs</p>
+                        </div>
+                        <div class="bg-black/20 rounded-xl p-6 text-center">
+                            <p class="text-3xl font-black text-rattler-gold">ACAC</p>
+                            <p class="text-sm text-gray-400 mt-2">Conference Play</p>
+                        </div>
+                        <div class="bg-black/20 rounded-xl p-6 text-center">
+                            <p class="text-3xl font-black text-rattler-gold">CCAA</p>
+                            <p class="text-sm text-gray-400 mt-2">National Body</p>
+                        </div>
+                        <div class="bg-black/20 rounded-xl p-6 text-center">
+                            <p class="text-3xl font-black text-rattler-gold">MHC</p>
+                            <p class="text-sm text-gray-400 mt-2">Medicine Hat, AB</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact & Social Section -->
     <section id="contact" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center">Get In Touch</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 rounded-lg p-8 text-center">
+            <h2 class="text-4xl font-black mb-14 text-center">Connect with <span class="text-rattler-gold">#RattlerNation</span></h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://www.facebook.com/mhc.rattlers/" target="_blank" class="card-hover bg-gray-900 rounded-2xl p-8 text-center border border-gray-800 hover:border-blue-500/50 group">
+                    <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg group-hover:text-blue-400 transition">Facebook</h3>
+                    <p class="text-gray-500 text-sm mt-2">@mhc.rattlers</p>
+                </a>
+                <a href="https://www.instagram.com/mhc_rattlers/" target="_blank" class="card-hover bg-gray-900 rounded-2xl p-8 text-center border border-gray-800 hover:border-pink-500/50 group">
+                    <div class="w-16 h-16 bg-pink-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg group-hover:text-pink-400 transition">Instagram</h3>
+                    <p class="text-gray-500 text-sm mt-2">@mhc_rattlers</p>
+                </a>
+                <a href="https://twitter.com/MHC_Rattlers" target="_blank" class="card-hover bg-gray-900 rounded-2xl p-8 text-center border border-gray-800 hover:border-sky-500/50 group">
+                    <div class="w-16 h-16 bg-sky-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-sky-500" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg group-hover:text-sky-400 transition">X / Twitter</h3>
+                    <p class="text-gray-500 text-sm mt-2">@MHC_Rattlers</p>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mt-6">
+                <div class="bg-gray-900 rounded-2xl p-8 text-center border border-gray-800">
                     <div class="text-3xl mb-4">📍</div>
-                    <h3 class="text-xl font-bold mb-2">Location</h3>
-                    <p class="text-gray-400">Thunder Ridge Arena<br>1500 Arena Drive<br>Colorado Springs, CO 80906</p>
+                    <h3 class="font-bold text-lg">Location</h3>
+                    <p class="text-gray-400 text-sm mt-2">Medicine Hat College<br>299 College Drive SE<br>Medicine Hat, AB</p>
                 </div>
-                <div class="bg-gray-800 rounded-lg p-8 text-center">
-                    <div class="text-3xl mb-4">📧</div>
-                    <h3 class="text-xl font-bold mb-2">Email</h3>
-                    <p class="text-gray-400">info@thunderridge.com<br>tickets@thunderridge.com<br>careers@thunderridge.com</p>
+                <div class="bg-gray-900 rounded-2xl p-8 text-center border border-gray-800">
+                    <div class="text-3xl mb-4">🏟️</div>
+                    <h3 class="font-bold text-lg">Facilities</h3>
+                    <p class="text-gray-400 text-sm mt-2">MHC Gymnasium<br>MHC Athletics Fields<br>Medicine Hat, AB</p>
                 </div>
-                <div class="bg-gray-800 rounded-lg p-8 text-center">
-                    <div class="text-3xl mb-4">📱</div>
-                    <h3 class="text-xl font-bold mb-2">Follow Us</h3>
-                    <p class="text-gray-400">@ThunderRidgeAth<br>facebook.com/thunderridge<br>instagram.com/thunderridge</p>
+                <div class="bg-gray-900 rounded-2xl p-8 text-center border border-gray-800">
+                    <div class="text-3xl mb-4">🌐</div>
+                    <h3 class="font-bold text-lg">Website</h3>
+                    <p class="text-gray-400 text-sm mt-2"><a href="https://www.rattlers.ca" target="_blank" class="text-rattler-gold hover:underline">www.rattlers.ca</a><br>Official MHC Athletics</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black bg-opacity-75 border-t border-gray-700 py-12">
+    <footer class="bg-black border-t border-gray-800 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
                 <div>
-                    <h4 class="font-bold mb-4">About</h4>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-rattler-green rounded-full flex items-center justify-center text-xl font-black text-rattler-gold ring-2 ring-rattler-gold/50">R</div>
+                        <div>
+                            <span class="font-bold block">Rattlers</span>
+                            <span class="text-xs text-gray-500">Medicine Hat College</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500">Competing with pride in the Alberta Colleges Athletic Conference (ACAC).</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-rattler-gold text-sm uppercase tracking-wider">Sports</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">History</a></li>
-                        <li><a href="#" class="hover:text-white transition">Ownership</a></li>
+                        <li><a href="https://www.rattlers.ca/sports/mbkb" target="_blank" class="hover:text-white transition">Basketball</a></li>
+                        <li><a href="https://www.rattlers.ca/sports/mvball" target="_blank" class="hover:text-white transition">Volleyball</a></li>
+                        <li><a href="https://www.rattlers.ca/sports/msoc" target="_blank" class="hover:text-white transition">Soccer</a></li>
+                        <li><a href="https://www.rattlers.ca/sports/wice" target="_blank" class="hover:text-white transition">Ice Hockey</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4">Fans</h4>
+                    <h4 class="font-bold mb-4 text-rattler-gold text-sm uppercase tracking-wider">Inside Athletics</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Tickets</a></li>
-                        <li><a href="#" class="hover:text-white transition">Merchandise</a></li>
-                        <li><a href="#" class="hover:text-white transition">Fan Club</a></li>
+                        <li><a href="https://www.rattlers.ca/information/staff_directory" target="_blank" class="hover:text-white transition">Staff Directory</a></li>
+                        <li><a href="https://www.rattlers.ca/information/MHC_Facilities" target="_blank" class="hover:text-white transition">Facilities</a></li>
+                        <li><a href="https://www.rattlers.ca/information/Become_A_Rattler" target="_blank" class="hover:text-white transition">Become A Rattler</a></li>
+                        <li><a href="https://www.rattlers.ca/information/Eligibility_Information" target="_blank" class="hover:text-white transition">Eligibility Info</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4">Media</h4>
+                    <h4 class="font-bold mb-4 text-rattler-gold text-sm uppercase tracking-wider">Rattler Nation</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">News</a></li>
-                        <li><a href="#" class="hover:text-white transition">Photos</a></li>
-                        <li><a href="#" class="hover:text-white transition">Press</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Privacy</a></li>
-                        <li><a href="#" class="hover:text-white transition">Terms</a></li>
-                        <li><a href="#" class="hover:text-white transition">Accessibility</a></li>
+                        <li><a href="https://www.rattlers.ca/information/Rattlers_Ticket_Information" target="_blank" class="hover:text-white transition">Tickets</a></li>
+                        <li><a href="https://www.rattlers.ca/information/rattlers_booster_club" target="_blank" class="hover:text-white transition">Booster Club</a></li>
+                        <li><a href="https://www.rattlers.ca/information/Support_the_Rattlers" target="_blank" class="hover:text-white transition">Support the Rattlers</a></li>
+                        <li><a href="https://www.rattlers.ca/information/Corporate_Sponsors" target="_blank" class="hover:text-white transition">Corporate Sponsors</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 Thunder Ridge Athletics. All rights reserved.</p>
+            <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">&copy; 2026 Medicine Hat College Rattlers. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/mhc.rattlers/" target="_blank" class="text-gray-500 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/mhc_rattlers/" target="_blank" class="text-gray-500 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/MHC_Rattlers" target="_blank" class="text-gray-500 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -342,4 +612,10 @@
         document.head.appendChild(s);
     })();
     </script>
+
+<script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+</script>
 </html>
